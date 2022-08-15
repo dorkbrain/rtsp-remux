@@ -35,3 +35,10 @@ Reload the systemd daemon and enable the camera services:
 systemctl datemon-reload
 systemctl enable --now {deck,porch}cam1
 ```
+
+Disable the default Nginx site and enable remux:
+```
+rm /etc/nginx/sites-enabled/default
+ln -fs /etc/nginx/sites-available/remux /etc/nginx/sites-enabled/remux
+systemctl reload nginx
+```
