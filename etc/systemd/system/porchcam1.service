@@ -3,7 +3,7 @@ Description=porchcam1
 After=multi-user.target network-online.target
 
 [Service]
-ExecStart=/usr/local/bin/startstream.sh /etc/redux/porchcam1.conf
+ExecStart=/usr/local/bin/startstream.sh /etc/remux/porchcam1.json
 KillMode=control-group
 Restart=on-failure
 TimeoutSec=1
