@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <link href="https://vjs.zencdn.net/7.20.1/video-js.css" rel="stylesheet" />
+    <title>REstream</title>
+    <link rel="icon" type="image/png" href="/streaming.png" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .video-js.vjs-playing .vjs-tech {
+        pointer-events: none;
+      }
+      body {
+        background-color: black;
+      }
+      .centered {
+        text-align: center;
+        margin: auto;
+        width: 50%;
+      }
+      .container {
+        margin: auto;
+        width: 50%;
+        background-color: black;
+        display: grid;
+        grid-template-columns: 5% 95%;
+        grid-row: auto auto;
+        grid-column-gap: 0px;
+        grid-row-gap: 5px;
+      }
+      .boxleft {
+        background-color: #369;
+        padding: 0px;
+        border-radius: 10px;
+        color: antiquewhite;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+        font-family: sans-serif;
+        font-weight: bold;
+        writing-mode: vertical-rl;
+        transform: rotate(-180deg);
+        -webkit-transform: rotate(-180deg);
+        -moz-transform: rotate(-180deg);
+      }
+      .boxright {
+        background-color: black;
+        padding: 0px;
+        border-radius: 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="boxleft">Backyard</div>
+      <div class="boxright">
+        <video id="deckcam1" class="video-js" controls preload="auto" width="768" height="432" data-setup="{}" muted autoplay>
+          <source src="deckcam1.m3u8" type="application/x-mpegURL">
+        </video>
+      </div>
+      <div class="boxleft">Porch</div>
+      <div class="boxright">
+        <video id="porchcam1" class="video-js" controls preload="auto" width="768" height="432" data-setup="{}" muted autoplay>
+          <source src="porchcam1.m3u8" type="application/x-mpegURL">
+        </video>
+      </div>
+    </div>
+    <script src="https://vjs.zencdn.net/7.20.1/video.min.js"></script>
+  </body>
+</html>
