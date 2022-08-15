@@ -42,3 +42,6 @@ rm /etc/nginx/sites-enabled/default
 ln -fs /etc/nginx/sites-available/remux /etc/nginx/sites-enabled/remux
 systemctl reload nginx
 ```
+
+
+TODO: Move logging to ramdisk to extend the life of the SD card
