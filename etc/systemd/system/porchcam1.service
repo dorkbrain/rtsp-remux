@@ -1,0 +1,12 @@
+[Unit]
+Description=porchcam1
+After=multi-user.target network-online.target
+
+[Service]
+ExecStart=/usr/local/bin/startstream.sh /etc/redux/porchcam1.conf
+KillMode=control-group
+Restart=on-failure
+TimeoutSec=1
+
+[Install]
+WantedBy=multi-user.target
