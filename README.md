@@ -19,7 +19,7 @@ apt update
 
 Install necessary packages:
 ```
-apt install nginx nginx-extras ffmpeg* jq log2ram git
+apt install nginx nginx-extras ffmpeg* jq log2ram
 sed 's/SIZE=40M/SIZE=128MB/g' -i /etc/log2ram.conf
 ```
 
@@ -35,13 +35,7 @@ Create directory structure for remux config:
 mkdir -p /etc/remux/html
 ```
 
-Clone this repo and copy all files where they need to go from this repo:
-```
-cd /usr/local/src
-git clone https://github.com/dorkbrain/remux
-cd remux
-cp -rpv !(README.md) /
-```
+***This is when you should copy all of the files in this repo to their proper place***
 
 Reload the systemd daemon and enable the camera services:
 ```
