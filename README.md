@@ -49,7 +49,7 @@ sed -E 's/rotate .*/rotate 3/g; s/(monthly|weekly)/daily/g' -i /etc/logrotate.d/
 5) Create the ramdisk, add it to the fstab, and mount it:
 ```
 mkdir -p /mnt/ram
-echo "tmpfs /mnt/ram tmpfs rw,mode=1777,size=32m,nosuid,nodev,noatime 0 0" >> /etc/fstab
+echo "tmpfs /mnt/ram tmpfs rw,mode=1777,size=32m,nosuid,nodev,noatime,nodiratime 0 0" >> /etc/fstab
 mount -a
 ```
 
