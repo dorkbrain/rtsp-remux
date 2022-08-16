@@ -11,10 +11,14 @@
 
 In this demo I have a simple web page with 2 cameras (camer1 and camera2).
 
+<br/>
+
 1) Start by making sure the Pi OS is up to date and clean:
 ```
 apt update && apt upgrade -y && apt autoremove -y
 ```
+
+<br/>
 
 2) Add log2ram repository and update apt:
 ```
@@ -23,17 +27,23 @@ wget -O /usr/share/keyrings/azlux-archive-keyring.gpg  https://azlux.fr/repo.gpg
 apt update
 ```
 
+<br/>
+
 3) Install necessary packages:
 ```
 apt install nginx nginx-extras ffmpeg* jq log2ram
 
 ```
 
+<br/>
+
 4) Configure log2ram size and update logrotate to cut back on logs:
 ```
 sed 's/SIZE=40M/SIZE=128M/g' -i /etc/log2ram.conf
 sed -E 's/rotate .*/rotate 3/g; s/(monthly|weekly)/daily/g' -i /etc/logrotate.d/*
 ```
+
+<br/>
 
 5) Create the ramdisk, add it to the fstab, and mount it:
 ```
@@ -42,12 +52,18 @@ echo "tmpfs /mnt/ram tmpfs rw,mode=1777,size=256m,nosuid,nodev,noatime 0 0" >> /
 mount -a
 ```
 
+<br/>
+
 6) Create directory structure for remux config:
 ```
 mkdir -p /etc/remux/html
 ```
 
+<br/>
+
 7) ***This is when you should copy all of the files in this repo to their proper place***
+
+<br/>
 
 8) Reload the systemd daemon and enable the camera services:
 ```
@@ -55,12 +71,16 @@ systemctl daemon-reload
 systemctl enable --now remux@camera{1,2}
 ```
 
+<br/>
+
 9) Disable the default Nginx site and enable remux:
 ```
 rm /etc/nginx/sites-enabled/default
 ln -fs /etc/nginx/sites-available/remux /etc/nginx/sites-enabled/remux
 systemctl reload nginx
 ```
+
+<br/>
 
 10) Last of all, reboot to start logging to RAM instead of SD card:
 ```
