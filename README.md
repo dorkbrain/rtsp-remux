@@ -69,7 +69,7 @@ cp -rp !(README.md) /
 chmod +x /usr/local/bin/startstream.sh
 ```
 
-> Edit the `/etc/remux/camera{1,2}.json` files to use your camera authentication info and address.  Fields should be self explanitary.  You can tweak ffmpeg parameters here as well but that's beyond the scopy of this repo.
+> Edit the `/etc/remux/camera{1,2}.json` files to use your camera authentication info and address.  Fields should be self explanitary.  ***The file names MUST match the service names created in the next steps.***  You can tweak ffmpeg parameters here as well but that's beyond the scopy of this repo.
 
 <br/>
 
