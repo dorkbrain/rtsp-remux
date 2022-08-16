@@ -9,7 +9,7 @@
 
 ---
 
-This is the framework I came up with to convert 2 RTSP IP Camera streams to HLS along with a simple web page and [VideoJS]https://github.com/videojs/video.js viewers.  Using my Pi3B+ I get around 5-10 second delay on the streams.
+This is the framework I came up with to convert 2 RTSP IP Camera streams to HLS along with a simple web page and [VideoJS](https://github.com/videojs/video.js) viewers.  Using my Pi3B+ I get around 5-10 second delay on the streams.
 
 <br/>
 
