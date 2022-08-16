@@ -20,7 +20,7 @@ apt update
 Install necessary packages:
 ```
 apt install nginx nginx-extras ffmpeg* jq log2ram
-sed 's/SIZE=40M/SIZE=128MB/g' -i /etc/log2ram.conf
+sed 's/SIZE=40M/SIZE=128M/g' -i /etc/log2ram.conf
 ```
 
 Create the ramdisk, add it to the fstab, and mount it:
