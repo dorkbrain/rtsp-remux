@@ -1,9 +1,9 @@
 [Unit]
-Description=porchcam1
+Description=Remux RTSP to HLS (%i)
 After=multi-user.target network-online.target
 
 [Service]
-ExecStart=/usr/local/bin/startstream.sh /etc/remux/porchcam1.json
+ExecStart=/usr/local/bin/startstream.sh /etc/remux/%i.json
 KillMode=control-group
 Restart=on-failure
 TimeoutSec=1
