@@ -40,7 +40,7 @@ apt install nginx nginx-extras ffmpeg* jq log2ram
 
 4) Configure log2ram size and update logrotate to cut back on logs:
 ```
-sed 's/SIZE=40M/SIZE=128M/g' -i /etc/log2ram.conf
+sed 's/SIZE=40M/SIZE=64M/g' -i /etc/log2ram.conf
 sed -E 's/rotate .*/rotate 3/g; s/(monthly|weekly)/daily/g' -i /etc/logrotate.d/*
 ```
 
@@ -49,7 +49,7 @@ sed -E 's/rotate .*/rotate 3/g; s/(monthly|weekly)/daily/g' -i /etc/logrotate.d/
 5) Create the ramdisk, add it to the fstab, and mount it:
 ```
 mkdir -p /mnt/ram
-echo "tmpfs /mnt/ram tmpfs rw,mode=1777,size=256m,nosuid,nodev,noatime 0 0" >> /etc/fstab
+echo "tmpfs /mnt/ram tmpfs rw,mode=1777,size=32m,nosuid,nodev,noatime 0 0" >> /etc/fstab
 mount -a
 ```
 
