@@ -55,14 +55,7 @@ mount -a
 
 <br/>
 
-6) Create directory structure for remux config:
-```
-mkdir -p /etc/remux/html
-```
-
-<br/>
-
-7) Clone this repo to `/usr/local/src` then copy files to their proper places:
+6) Clone this repo to `/usr/local/src` then copy files to their proper places:
 ```
 cd /usr/local/src
 git clone https://github.com/dorkbrain/rtsp-remux
@@ -75,7 +68,7 @@ chmod +x /usr/local/bin/startstream.sh
 
 <br/>
 
-8) Reload the systemd daemon and enable the camera services:
+7) Reload the systemd daemon and enable the camera services:
 ```
 systemctl daemon-reload
 systemctl enable --now remux@camera{1,2}
@@ -83,7 +76,7 @@ systemctl enable --now remux@camera{1,2}
 
 <br/>
 
-9) Disable the default Nginx site and enable remux:
+8) Disable the default Nginx site and enable remux:
 ```
 rm /etc/nginx/sites-enabled/default
 ln -fs /etc/nginx/sites-available/remux /etc/nginx/sites-enabled/remux
@@ -92,7 +85,7 @@ systemctl reload nginx
 
 <br/>
 
-10) Last of all, reboot to start logging to RAM instead of SD card:
+9) Last of all, reboot to start logging to RAM instead of SD card:
 ```
 reboot
 ```
