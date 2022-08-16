@@ -1,15 +1,17 @@
 # remux
 ## RTSP to HLS remuxer and web server on RPI 3B+ (RPI OS Lite 64-bit)
 
-### html, m3u8 playlist, and video files served up in a ramdisk to reduce SD card strain
-
 ---
 
 *note: all steps are to be performed as root*
 
 ---
 
-This is the framework I came up with to convert 2 RTSP IP Camera streams to HLS along with a simple web page and [VideoJS](https://github.com/videojs/video.js) viewers.  Using my Pi3B+ I get around 5-10 second delay on the streams.
+>This is the framework I came up with to convert 2 RTSP IP Camera streams to HLS along with a simple web page and [VideoJS](https://github.com/videojs/video.js) viewers.
+
+>Created a ramdisk (`/mnt/ram`) to store the web page and ffmpeg output files for speed and SD card relief.
+
+>Added [log2ram](https://github.com/azlux/log2ram) to further reduce the writes to the SD card.
 
 <br/>
 
@@ -69,7 +71,7 @@ cp -rp !(README.md) /
 chmod +x /usr/local/bin/startstream.sh
 ```
 
-> Edit the `/etc/remux/camera{1,2}.json` files to use your camera authentication info and address.  Fields should be self explanitary.  ***The file names MUST match the service names created in the next steps.***  You can tweak ffmpeg parameters here as well but that's beyond the scopy of this repo.
+> Edit the `/etc/remux/camera{1,2}.json` files to use your camera authentication info and address.  Fields should be self explanitary.  ***The file names MUST match the service names created in the next step.***  You can tweak ffmpeg parameters here as well but that's beyond the scope.  Parameters gave me the best results with my camera and network.
 
 <br/>
 
