@@ -32,7 +32,6 @@ apt update
 3) Install necessary packages:
 ```
 apt install nginx nginx-extras ffmpeg* jq log2ram
-
 ```
 
 <br/>
@@ -61,7 +60,16 @@ mkdir -p /etc/remux/html
 
 <br/>
 
-7) ***This is when you should copy all of the files in this repo to their proper place***
+7) Clone this repo to `/usr/local/src` then copy files to their proper places:
+```
+cd /usr/local/src
+git clone https://github.com/dorkbrain/rtsp-remux
+cd rtsp-remux
+cp -rp !(README.md) /
+chmod +x /usr/local/bin/startstream.sh
+```
+
+> Edit the `/etc/remux/camera{1,2}.json` files to use your camera authentication info and address.  Fields should be self explanitary.  You can tweak ffmpeg parameters here as well but that's beyond the scopy of this repo.
 
 <br/>
 
