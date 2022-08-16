@@ -40,7 +40,7 @@ Clone this repo and copy all files where they need to go from this repo:
 cd /usr/local/src
 git clone https://github.com/dorkbrain/remux
 cd remux
-cp -rpv * /
+cp -rpv !(README.md) /
 ```
 
 Reload the systemd daemon and enable the camera services:
