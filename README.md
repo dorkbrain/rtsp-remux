@@ -10,7 +10,7 @@ Start by making sure the Pi OS is up to date and clean:
 apt update && apt upgrade -y && apt autoremove -y
 ```
 
-Add log2ram repository:
+Add log2ram repository and update apt:
 ```
 echo "deb [signed-by=/usr/share/keyrings/azlux-archive-keyring.gpg] http://packages.azlux.fr/debian/ bullseye main" | tee /etc/apt/sources.list.d/azlux.list
 wget -O /usr/share/keyrings/azlux-archive-keyring.gpg  https://azlux.fr/repo.gpg
@@ -20,7 +20,13 @@ apt update
 Install necessary packages:
 ```
 apt install nginx nginx-extras ffmpeg* jq log2ram
+
+```
+
+Configure log2ram size and update logrotate to cut back on logs:
+```
 sed 's/SIZE=40M/SIZE=128M/g' -i /etc/log2ram.conf
+sed -E 's/rotate .*/rotate 3/g; s/(monthly|weekly)/daily/g' -i /etc/logrotate.d/*
 ```
 
 Create the ramdisk, add it to the fstab, and mount it:
